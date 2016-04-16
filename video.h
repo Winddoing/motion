@@ -12,7 +12,8 @@
 
 #define _LINUX_TIME_H 1
 #ifndef WITHOUT_V4L
-#include <linux/videodev.h>
+/*#include <linux/videodev.h>*/
+#include <libv4l1-videodev.h>
 #include <sys/mman.h>
 #include "pwc-ioctl.h"
 #endif
