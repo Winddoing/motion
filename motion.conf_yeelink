@@ -37,7 +37,7 @@ locate on
 
 
 
-videodevice /dev/video0
+videodevice /dev/video1
 
 
 
@@ -199,15 +199,15 @@ webcam_quality 100
 
 webcam_maxrate 18
 
+jpeg_filename %v-%Y%m%d%H%M%S-%q_motion
+
+#on_event_start /home/wqshao/auto_process/on_motion_detected.sh
 
 
-on_event_start /home/wqshao/auto_process/on_motion_detected.sh
 
-
-
-on_event_end /home/wqshao/auto_process/on_motion_end.sh
+#on_event_end /home/wqshao/auto_process/on_motion_end.sh
 
 
 
 gap 10
-output_motion off
+#output_motion off

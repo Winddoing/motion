@@ -14,134 +14,62 @@
 
 # for detailed information on configuration options.
 
-
-
-
-
-
-
 daemon off
-
-
 
 quiet on
 
-
-
 locate on
-
 
 # You may very well need to change this (check with 'dmesg'
 
 # after plugging in your webcam).
 
-
-
 videodevice /dev/video0
-
-
-
-
-
-
 
 # Image size in pixels (valid range is camera dependent).
 
+width 320
 
 
-width 640
+height 240
 
-height 480
-
-
+framerate 25
 
 quality 85
 
-
-
 auto_brightness off
-
-#webcam_config by chenwuyang
-; netcam_url value http://192.168.4.90
-; netcam_http 1.0
-webcam_port 8081
-webcam_maxrate 30
-webcam_localhost off
-control_port 8080
-control_localhost off
-framerate 25
-
-
-
-
 
 # General threshold level and noise threshold
 
 # level (for distinguishing between noise and motion).
 
-
-
 threshold_tune off
-
-
 
 threshold 4500
 
-
-
 noise_level 64
-
-
-
-
 
 # Initial brightness, contrast, hue (NTSC), and saturation.
 
 # 0 = disabled (valid range 0-255).
 
-
-
 brightness 0
-
-
 
 contrast 0
 
-
-
 saturation 0
-
-
 
 hue 0
 
-
-
-
-
 # Encode movies in real-time (install ffmpeg before enabling).
 
-
-
-ffmpeg_cap_new off
-
-
-
-
+ffmpeg_cap_new on
 
 # Codec to be used by ffmpeg for the video compression.
 
 # Supported formats: mpeg4, msmpeg4.
 
-
-
 ffmpeg_video_codec msmpeg4
-
-
-
-
-
-
 
 # Target base directory for pictures and films (you may need
 
@@ -149,65 +77,34 @@ ffmpeg_video_codec msmpeg4
 
 # which system user runs motion).
 
-
-
 target_dir /home/wqshao/auto_process/tmp/snapshots
-
-
-
-
 
 # Define a port number (e.g. 8000) to enable the mini-http server.
 
-
-
 # 0 = disabled.
 
-
-
-
-
-
-
-
+webcam_port 8081
 
 # Set to 'off' to allow anybody (not just localhost) to view the
 
 # webcam via the mini-http server (http://hostname:port).
 
+webcam_localhost off
 
-
-
-
-
-
-
-#快照间隔
 snapshot_interval 1
 
-
-#快照
 snapshot_filename snapshot
 
+webcam_quality 50
+
+webcam_maxrate 8
+
+on_event_start "/home/wqshao/auto_process/on_motion_detected.sh"
 
 
 
-
-webcam_quality 100
-
-
-
-webcam_maxrate 18
-
-
-
-on_event_start /home/wqshao/auto_process/on_motion_detected.sh
-
-
-
-on_event_end /home/wqshao/auto_process/on_motion_end.sh
+on_event_end "/home/wqshao/auto_process/on_motion_end.sh"
 
 
 
 gap 10
-output_motion off
